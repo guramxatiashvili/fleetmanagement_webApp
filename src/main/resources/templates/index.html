@@ -315,7 +315,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="index.html">
+            <a class="" th:href="@{/index}" >
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -327,10 +327,10 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Vehicle Data</a></li>
-              <li><a class="" href="form_validation.html">Maintenance</a></li>
-              <li><a class="" href="form_component.html">Movements</a></li>
-              <li><a class="" href="form_validation.html">Hires</a></li>
+              <li><a class="" th:href="@{/vehicle}">Vehicle Data</a></li>
+              <li><a class="" th:href="@{/vehiclemaintenance}">Maintenance</a></li>
+              <li><a class="" th:href="@{/vehiclemovement}">Movements</a></li>
+              <li><a class="" th:href="@{/vehiclehire}">Hires</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -340,10 +340,10 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Vehicle Make</a></li>
-              <li><a class="" href="form_validation.html">Vehicle Types</a></li>
-              <li><a class="" href="form_component.html">Vehicle Models</a></li>
-              <li><a class="" href="form_validation.html">Status Values</a></li>
+              <li><a class="" th:href="@{/vehiclemake}">Vehicle Make</a></li>
+              <li><a class="" th:href="@{/vehicletype}">Vehicle Types</a></li>
+              <li><a class="" th:href="@{/vehiclemodel}">Vehicle Models</a></li>
+              <li><a class="" th:href="@{/vehiclestatus}">Status Values</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -353,11 +353,11 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Employees</a></li>
-              <li><a class="" href="form_validation.html">Clients</a></li>
-              <li><a class="" href="form_component.html">Suppliers</a></li>
-              <li><a class="" href="form_validation.html">Contacts</a></li>
-              <li><a class="" href="form_validation.html">Users</a></li>
+              <li><a class="" th:href="@{/employee}">Employees</a></li>
+              <li><a class="" th:href="@{/client}">Clients</a></li>
+              <li><a class="" th:href="@{/supplier}">Suppliers</a></li>
+              <li><a class="" th:href="@{/contact}">Contacts</a></li>
+              <li><a class="" th:href="@{/user}">Users</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -367,8 +367,8 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Job Titles</a></li>
-              <li><a class="" href="form_validation.html">Employee Types</a></li>
+              <li><a class="" th:href="@{/jobtitle}">Job Titles</a></li>
+              <li><a class="" th:href="@{/employeetype}">Employee Types</a></li>
             </ul>
           </li>
 
@@ -379,8 +379,8 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Invoices</a></li>
-              <li><a class="" href="form_validation.html">Invoice Status Values</a></li>
+              <li><a class="" th:href="@{/invoice}">Invoices</a></li>
+              <li><a class="" th:href="@{/invoicestatus}">Invoice Status Values</a></li>
             </ul>
           </li>
 
@@ -391,9 +391,9 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="form_component.html">Conturies</a></li>
-              <li><a class="" href="form_validation.html">States</a></li>
-              <li><a class="" href="form_validation.html">Locations</a></li>
+              <li><a class="" th:href="@{/country}">Countries</a></li>
+              <li><a class="" th:href="@{/state}">States</a></li>
+              <li><a class="" th:href="@{/location}">Locations</a></li>
             </ul>
           </li>
 
