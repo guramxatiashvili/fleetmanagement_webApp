@@ -12,7 +12,8 @@ import javax.xml.crypto.dsig.XMLValidateContext;
 public class FleetmanagementApplication extends WebMvcAutoConfiguration {
 
     public static void main(String[] args) {
-		SpringApplication.run(FleetmanagementApplication.class, args);
+
+    	SpringApplication.run(FleetmanagementApplication.class, args);
 	}
 
 }

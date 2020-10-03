@@ -10,4 +10,9 @@ public class ApplicationController {
 
         return "index";
     }
+    @RequestMapping("/index.html")
+    public String goHomeSecond(){
+
+        return "index";
+    }
 }
