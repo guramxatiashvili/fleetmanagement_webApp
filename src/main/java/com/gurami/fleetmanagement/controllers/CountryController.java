@@ -5,7 +5,8 @@ import com.gurami.fleetmanagement.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -21,5 +22,12 @@ public class CountryController {
         //pass list of countries to html
         model.addAttribute("countries",countryList);
         return "country";
+    }
+    @RequestMapping(value = "/countries/addNew", method = RequestMethod.POST)
+    @ResponseBody
+    public String addNew(Country country){
+        countryService.saveCountry(country);
+        return "country";
+        //return new ModelAndView("redirect:/countries");
     }
 }

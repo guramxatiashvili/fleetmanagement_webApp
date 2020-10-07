@@ -33,4 +33,60 @@ public class Country {
 	
 	@OneToMany(mappedBy="country")
 	private List<State> states;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public String getCapital() {
+		return capital;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public String getNationality() {
+		return nationality;
+	}
+
+	public String getContinent() {
+		return continent;
+	}
+
+	public List<State> getStates() {
+		return states;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public void setCapital(String capital) {
+		this.capital = capital;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+
+	public void setContinent(String continent) {
+		this.continent = continent;
+	}
+
+	public void setStates(List<State> states) {
+		this.states = states;
+	}
 }
