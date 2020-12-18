@@ -29,13 +29,20 @@ public class CountryController {
     public String addNew(Country country){
         countryService.saveCountry(country);
         return "country";
-        //return new ModelAndView("redirect:/countries");
+        //return  "redirect:/countries";
     }
 
     @RequestMapping("countries/findById")
     @ResponseBody
     public Optional<Country> findById(Integer id){
         return countryService.findById(id);
+    }
 
+    @RequestMapping(value="/countries/update",method = {RequestMethod.PUT,RequestMethod.GET})
+    public String update(Country country){
+        countryService.saveCountry(country);
+        //return "country";
+        return  "redirect:/countries";
+        //return new ModelAndView("redirect:/countries");
     }
 }
