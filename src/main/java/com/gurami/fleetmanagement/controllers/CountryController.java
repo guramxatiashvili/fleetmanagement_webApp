@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 
 import java.util.List;
@@ -26,10 +27,12 @@ public class CountryController {
     }
     @RequestMapping(value = "/countries/addNew", method = RequestMethod.POST)
     @ResponseBody
-    public String addNew(Country country){
+    public RedirectView addNew(Country country){
         countryService.saveCountry(country);
-        return "country";
+        //return "/countries";
         //return  "redirect:/countries";
+        return new RedirectView("/countries");
+
     }
 
     @RequestMapping("countries/findById")
@@ -39,8 +42,17 @@ public class CountryController {
     }
 
     @RequestMapping(value="/countries/update",method = {RequestMethod.PUT,RequestMethod.GET})
-    public String update(Country country){
+    public RedirectView update(Country country){
         countryService.saveCountry(country);
+        //return "countries";
+        //return  "redirect:/countries";
+        return new RedirectView("/countries");
+        //return new ModelAndView("redirect:/countries");
+    }
+
+    @RequestMapping(value="/countries/delete",method = {RequestMethod.DELETE,RequestMethod.GET})
+    public String delete(Integer id){
+        countryService.delete(id);
         //return "country";
         return  "redirect:/countries";
         //return new ModelAndView("redirect:/countries");
