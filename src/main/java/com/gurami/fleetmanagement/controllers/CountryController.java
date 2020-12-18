@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class CountryController {
@@ -29,5 +30,12 @@ public class CountryController {
         countryService.saveCountry(country);
         return "country";
         //return new ModelAndView("redirect:/countries");
+    }
+
+    @RequestMapping("countries/findById")
+    @ResponseBody
+    public Optional<Country> findById(Integer id){
+        return countryService.findById(id);
+
     }
 }
