@@ -19,7 +19,7 @@ public class StateService {
         return stateRepository.findAll();
     }
     //Save new state
-    public void saveState(State state){
+    public void save(State state){
         stateRepository.save(state);
     }
 

@@ -1,11 +1,14 @@
 package com.gurami.fleetmanagement.controllers;
 
+import com.gurami.fleetmanagement.models.Country;
 import com.gurami.fleetmanagement.models.State;
 import com.gurami.fleetmanagement.services.StateService;
+import com.gurami.fleetmanagement.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,39 +19,42 @@ import java.util.Optional;
 
 @Controller
 public class StateController {
-    @Autowired
-    private StateService stateService;
+    @Autowired	private StateService stateService;
+    @Autowired	private CountryService countryService;
 
-    @GetMapping("/states")
-    public String getStates(Model model){
+
+    @GetMapping("/state")
+    public String getStates(Model model) {
         List<State> stateList = stateService.getStates();
-        //pass list of states to html
-        model.addAttribute("states",stateList);
+        model.addAttribute("states", stateList);
+
+        List<Country> countryList = countryService.getCountries();
+        model.addAttribute("countries", countryList);
+
         return "state";
     }
-    @RequestMapping(value = "/states/addNew", method = RequestMethod.POST)
-    @ResponseBody
-    public RedirectView addNew(State state){
-        stateService.saveState(state);
-        return new RedirectView("/states");
 
+    @PostMapping("/state/addNew")
+    public String addNew(State state) {
+        stateService.save(state);
+        return "redirect:/state";
     }
 
-    @RequestMapping("states/findById")
+    @RequestMapping("state/findById")
     @ResponseBody
-    public Optional<State> findById(Integer id){
+    public Optional<State> findById(int id) {
         return stateService.findById(id);
     }
 
-    @RequestMapping(value="/states/update",method = {RequestMethod.PUT,RequestMethod.GET})
-    public RedirectView update(State state){
-        stateService.saveState(state);
-        return new RedirectView("/states");
+    @RequestMapping(value="/state/update", method= {RequestMethod.PUT, RequestMethod.GET})
+    public String update(State state) {
+        stateService.save(state);
+        return "redirect:/state";
     }
 
-    @RequestMapping(value="/states/delete",method = {RequestMethod.DELETE,RequestMethod.GET})
-    public String delete(Integer id){
+    @RequestMapping(value="/state/delete", method= {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(Integer id) {
         stateService.delete(id);
-        return  "redirect:/states";
+        return "redirect:/state";
     }
 }
